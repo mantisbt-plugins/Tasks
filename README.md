@@ -1,7 +1,7 @@
 ########################################################
 # 	Mantis Bugtracker Add-On
 # 	Tasks Version 3.20
-#	2010-2011 plugin by Cas Nuy www.NUY.info
+#	2010-2023 plugin by Cas Nuy www.NUY.info
 ########################################################
 
 This plugin allows to assign tasks to other authorised handlers within the current project.
