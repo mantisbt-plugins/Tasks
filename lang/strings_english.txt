@@ -1,0 +1,96 @@
+<?PHP
+	$s_plugin_tasks_title = "Tasking Plugin";
+	$s_tasks_plugin_desc = " Tasking Plugin";
+	$s_tasks_desc = "Allows for adding sub tasks for an issue to an authorized handler.";
+	$s_plugin_tasks_config = "Configuration";
+	$s_tasks_delete_threshold ="Treshold for deleting";
+	$s_tasks_edit_threshold ="Treshold for editing";
+	$s_tasks_add_threshold ="Treshold for adding";
+	$s_tasks_allocate_threshold ="Treshold for allocating";
+	$s_tasks_view_threshold ="Treshold for viewing";
+	$s_tasks_update_threshold ="Treshold for updating";
+	$s_tasks_finish_threshold ="Eligible for marking complete";
+	$s_tasks_show_menu ="Show My Tasks in Menu (or under MyView)";
+	$s_tasks_admin_threshold ="Treshold for managing";
+	$s_tasks_history ="Keep history of changes";
+	$s_tasks_mail ="Send email when adding task";
+	$s_tasks_mail_finish = "Send mail once finished";
+	$s_change_configuration ="Update Config";
+	$s_tasks_enabled= 'Yes';
+	$s_tasks_disabled='No';
+	$s_tasks_body ="You have been given a task : ";
+	$s_tasks_body_finish ="The assigned task has been finished : ";
+	$s_tasks_date ="Needs to be finished by : ";
+	$s_tasks = 'Assigning Tasks:';
+	$s_print_tasks = '<b>Assigned Tasks:</b>';
+	$s_tasking_history = 'Tasking';
+
+	$s_task_user = 'Task owner';
+	$s_task_handler = 'Task assigned to';
+	$s_task_submit = 'Add task';
+	$s_taskcat_submit = 'Add category';
+	
+	$s_task_cancel = 'Cancel Update';
+	$s_task_title="Task";
+	$s_task_due =" Due date";
+	$s_task_desc="Description";
+	$s_task_response="Comments";
+	$s_task_completed="Completed";
+	$s_task_actions="Actions";
+	$s_task_delete = "Delete";
+	$s_task_update = "Update";
+	$s_task_edit = "Edit";
+	$s_task_finish = "Complete";
+	$s_task_update_comments = "Please maintain you comments on the given task";
+	$s_task_edit_comments = "Update your task below.";
+	$s_taskcat_edit_comments = "Update task-category below.";
+	
+	$s_plugin_tasks_mytasks = "My Tasks";
+	$s_mytasks = '<b>My Assigned Tasks:</b>';
+	$s_issue_task = "View Issue";
+	$s_alltasks = '<b>All open Tasks:</b>';
+	$s_allcategories = '<b>All Task categories:</b>';
+
+	$s_task_categories = "Task categories";
+	$s_taskcat_title = "Task Category name";
+	
+	$s_task_definition = "Automated tasks";
+	$s_task_configuration = "Configuration";
+	$s_autotask_title="Task";
+	$s_autotask_due ="Due days";
+	$s_autotask_desc="Description";
+	$s_autotask_handler = 'Task to be assigned to';
+	$s_project = "Project";
+	$s_tasks_check = "Check tasks completed when resolving/closing issue";
+	$s_tasks_auto_start_status = "Status";
+		
+	$s_task_bug = 'Bug-ID';
+	$s_alltasks = '<b>All Open Tasks:</b>';
+	$s_plugin_tasks_alltasks = "All Open Tasks";
+	
+	$s_task_category = "Category"; 
+	$s_tasks_update_bug = "Adjust last update issue";
+
+	$s_task_id ="ID";
+
+	$s_tasks_assign_group	= "Assign Tasks to Groups";
+	
+	$s_tasks_hour_rate = "Rate per hour";
+	$s_task_time	= "Minutes";
+	$s_tasks_clean = "Check & Clean orphaned/phantom tasks";
+	
+	$s_tasks_xls = "Excel";
+
+$MANTIS_ERROR['ERROR_BUG_OPEN_TASKS'] = 'Not all tasks have been finished for this issue, Resolving not yet possible.'; 
+$MANTIS_ERROR['ERROR_BUG_EMPTY_TASKS'] = 'Task has not been given a response, Finishing not yet possible.'; 
+
+$MANTIS_ERROR['ERROR_BUG_EMPTY_TITLE'] = 'Task has not been given a Title, Task has not been added.'; 
+$MANTIS_ERROR['ERROR_BUG_EMPTY_DESC'] = 'Task has not been given a Description, Task has not been added.'; 
+$MANTIS_ERROR['ERROR_BUG_EMPTY_DATE'] = 'Task has not been given a Due Date, Task has not been added.'; 
+
+$MANTIS_ERROR['ERROR_BUG_TASKS_CAT'] = 'Task category in use, cannot be deleted.'; 
+
+$MANTIS_ERROR['ERROR_TASKS_ONEHANDLER'] = 'You can only have one handler.'; 
+$MANTIS_ERROR['ERROR_TASKS_NOHANDLER'] = 'You must select a handler.'; 
+$MANTIS_ERROR['ERROR_NO_CATEGORY'] = 'You must select a category.'; 
+$MANTIS_ERROR['ERROR_NO_TASKCATEGORY'] = 'You must select a Task category.'; 

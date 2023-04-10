@@ -1,0 +1,54 @@
+Version 1.01		11-05-2010		Initial release
+Version 1.02		12-05-2010		Lay-out changes
+									Htmlentities for all textfields
+									Enlarged textfields to 250 chars
+Version 1.03		07-06-2010		Fixed missing language description
+Version 1.04		10-06-2010		Fixed problem with Missing Parameter message
+Version 1.05		10-08-2010		Fixed wrong emails
+									Added option to send email upon finishing
+									Allowed users to manage the task
+									Thanks to ISTVANB
+Version 1.06		03-09-2010		Added My_Tasks page for the main menu
+Version 1.07						Improved selection of My_Tasks page
+Version 1.08		10-12-2010		Bugfix
+Version 1.10		23-12-2010		Made handler level configurable
+									Option to show tasks on MyView page
+Version 1.11		26-01-2011		Added escaping of textfields before storing to DB
+Version 1.12		01-02-2011		Fixed Readonly textarea in combination with Tiny_MCE editor
+Version 1.13		15-02-2011		Now properly supports Cyrillic
+Version 2.01		21-02-2011		Added support for automatic tasks
+Version 2.02		22-02-2011		Location of Open tasks can be set by Global variable
+									Updated installation instructions
+Version 2.03		03-03-2011		Enabled checking if tasks have been finished when resolving an issue
+Version 2.04		11-04-2011		Adjusted the emails to reflect properly we are dealing with tasks
+Version 2.10		04-11-2011		Added the option to set a status level for adding automated tasks (per task)
+									Enabled checking if tasks have been finished when closing an issue
+									Tasks without Title/Description cannot be saved
+									Changed sequence of open tasks
+									Added option to view all open issues (Manage menu)
+Version 2.20		08-06-2012		Added Edit function
+									Enabled updating and finishing task in one go
+									Cosmetic changes
+Version 2.30		03-07-2012		Added task-categories
+									Added tasks in Bug-print
+Version 2.31		06-07-2012		Added excel download for "All open tasks"
+									Build in actions for proprietary plugin (EIGHTD)
+									Fixed autocreate tables !! finally !!
+Version 2.32						Updating a task can also update the issue (when task is finished)
+Version 2.40						Can assign tasks to groups (in combination with Usergroups plugin)
+									Completing MUST go via update (for review)
+Version 2.41						Validate users in group against various thresholds
+									Added time registration option for each task
+Version 2.42						When adding tasks, mail can be send to group mail address
+										Only when configured within the Usergroups module
+										Only when email address available
+Version 2.43						Changes
+Version 2.44						Changed default Mantis JScalendar to another JS calendar to prevent datepicker to be shown out of sight
+Version 3.01						Compatible with Mantis version 2.x
+Version 3.02						Bugfixes
+Version 3.05		03-12-2020		Added Delete routine and Cleaning option
+									Improved Mantis 2.x compatibility
+									Bugfixes
+Version 3.10		05-02-2022		Improved Mantis 2.x compatibility
+									Bugfixes
+Version 3.20		16-04-20232		Complete review
