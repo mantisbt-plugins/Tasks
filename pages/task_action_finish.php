@@ -51,4 +51,4 @@ if ( ON == $create_his ) {
 }
 
 
-print_header_redirect( 'view.php?id='.$bug_id.'' );
+print_header_redirect( '../../../view.php?id='.$bug_id.'' );

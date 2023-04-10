@@ -23,11 +23,14 @@ if (empty($title)) {
 if (empty($desc)) {
 	trigger_error( 'ERROR_BUG_EMPTY_DESC', ERROR );
 }
+if (empty($group)) {
+	$group=0;
+}
 # should event be logged in the project
 $create_his		= config_get( 'plugin_Tasks_tasks_history' );
 # Updating task
 // get current values
-$query = "SELECT * FROM {plugin_Tasks_defined}e WHERE task_id = $edit_id ";
+$query = "SELECT * FROM {plugin_Tasks_defined} WHERE task_id = $edit_id ";
 $result = db_query($query);
 $row = db_fetch_array( $result );
 // perform update
@@ -40,4 +43,12 @@ if(!db_query($query)){
 if ( ON == $create_his ) {
 	history_log_event_direct( $bug_id, 'Tasks-Edit', db_prepare_string($row['task_title']), $title, $user );
 }
-print_header_redirect( 'view.php?id='.$id.'' );
+?>
+<SCRIPT LANGUAGE="JavaScript">
+<!--hide
+window.close();
+if (window.opener && !window.opener.closed) {
+window.opener.location.reload();
+} 
+//-->
+</SCRIPT>

@@ -16,4 +16,4 @@ db_query($query);
 if ( ON == $create_his ) {
 	history_log_event_direct( $bug_id, 'Task',$row['task_title'], "Deleted", $user );
 }
-print_header_redirect( 'view.php?id='.$bug_id.'' );
+print_header_redirect( '../../../view.php?id='.$bug_id.'' );

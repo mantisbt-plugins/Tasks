@@ -22,7 +22,7 @@ $allocate_level = config_get( 'plugin_Tasks_tasks_allocate_threshold' );
 $use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
 
 ?>
-		<?php echo 'Tasks : ' . lang_get( 'task_edit_comments' ). ' => Issue-ID:  '.$bug_id.' => '.$description?>
+<?php echo 'Tasks : ' . lang_get( 'task_edit_comments' ). ' => Issue-ID:  '.$bug_id.' => '.$description?>
 <form name="taskediting" method="post" action="../../../plugins/Tasks/pages/task_action_edit2.php">
 <input type="hidden" name="edit_id" value="<?php echo $edit_id;  ?>">
 <input type="hidden" name="id" value="<?php echo $bug_id;  ?>">
@@ -82,7 +82,7 @@ if ( ON == $use_groups ) {
 	echo '</select>';
 	echo '<br><br>';
 
-} 
+}
 //$project_id=0;
 $handler=intval($handler);
 echo '<select name="task_handler">';
