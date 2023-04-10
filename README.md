@@ -1,6 +1,6 @@
 ########################################################
 # 	Mantis Bugtracker Add-On
-# 	Tasks Version 2.44
+# 	Tasks Version 3.20
 #	2010-2011 plugin by Cas Nuy www.NUY.info
 ########################################################
 
@@ -63,9 +63,6 @@ Find function bug_close and add the following line:
 	event_signal( 'EVENT_CLOSE_BUG', $p_bug_id );
 just before :
 	# Add bugnote if supplied
-
-For version 1.2.1 make sure to have this statement in confg_inc.php:
-$g_path          = 'http://path to your mantis installation/';
 
 The rest is like any other plugin.
 After copying to your webserver :
