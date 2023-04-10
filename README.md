@@ -20,9 +20,9 @@ Equally from every change, History records can be created in case plugin is conf
 
 If configured accordingly the system will verify if all tasks for this issue have been finished.
 
-One can also setup auto tasks per project/category.
-This means that whenever an issue is reported with the defined project/category,
-the system automatically will assign various tasks to predefined users.
+One can also setup auto tasks per project/category. 
+This means that whenever an issue is reported with the defined project/category, 
+the system automatically will assign various tasks to predefined users. 
 The due date will be the date of reporting plus a defined number of working days.
 
 Default the overview with tasks is presented where the event_hook 'EVENT_VIEW_BUG_EXTRA' is positioned.
@@ -48,8 +48,8 @@ Add the following line in config_inc.php:
 $g_tasks_show_menu = OFF;
 In OFF position, Open tasks are shown under My View
 Do ensure to define a signal in my_view_page.php.
-Then add the following line right after "print_recently_visited();"
-event_signal( 'EVENT_MYVIEW' );
+Then add the following line right after "layout_page_begin( __FILE__ ); "
+event_signal( 'EVENT_MYVIEW' ); 
 In ON position, a menu item will appear named "My tasks".
 
 In addition we need to add a signal in core/bug_api.php in case we want to check tasks upon resolving
@@ -63,8 +63,9 @@ Find function bug_close and add the following line:
 	event_signal( 'EVENT_CLOSE_BUG', $p_bug_id );
 just before :
 	# Add bugnote if supplied
+	
 
-The rest is like any other plugin.
+The rest is like any other plugin. 
 After copying to your webserver :
 - Start mantis ad administrator
 - Select manage
@@ -72,14 +73,7 @@ After copying to your webserver :
 - Select Install behind Tasks 2.20
 - Once installed, click on the plugin-name for further configuration.
 
-
-In order to have the tasks printed on the Print lay-out, please add the following linea to print_bug_page.php:
-	// Tasks-plugin
-		echo '<tr><td class="print-spacer" colspan="6"><hr size="1" /></td></tr>';
-		event_signal( 'EVENT_PRINT_TASKS', $f_bug_id );
-	// Tasks-plugin
-Add these lines just before "# Issue History" around line 496
-
+In case for whatever reason tables are not created automatically, use the supplies Tasks.sql file to create these manually.
 ********************************************************************************************
 Configuration options                                                                      *
 ********************************************************************************************
@@ -92,14 +86,14 @@ tasks_add_treshold			= 	DEVELOPER
 // Who can we give tasks
 tasks_allocating_treshold	= 	DEVELOPER
 
-// Who is allowed to view tasks
+// Who is allowed to view tasks 
 tasks_view_treshold			= 	VIEWER
 
-// Who is allowed to update tasks
+// Who is allowed to update tasks 
 tasks_update_treshold		= 	DEVELOPER
 
-// Who is allowed to edit tasks
-tasks_edit_treshold		= 	ADMINISTRATOR
+// Who is allowed to edit tasks 
+tasks_edit_treshold		= 	ADMINISTRATOR 
 The creator of the tasks can do this also
 
 // Who is allowed to delete tasks
@@ -136,11 +130,11 @@ This plugin is distributed under the same conditions as Mantis itself.
 ********************************************************************************************
 Mantis Issue                                                                               *
 ********************************************************************************************
-http://www.mantisbt.org/bugs/view.php?id=12789
+https://github.com/mantisbt-plugins/Tasks
 
 ********************************************************************************************
 Greetings                                                                                  *
 ********************************************************************************************
-Cas Nuy
+Cas Nuy 
 cas@nuy.info
 http://www.nuy.info
