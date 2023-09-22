@@ -95,7 +95,7 @@ if ($project>0) {
 <td>
 <?php
 $handler=0;
-echo '<select name="autotask_handler">';\
+echo '<select name="autotask_handler">';
 print_assign_to_option_list( $handler, 0 ,plugin_config_get( 'tasks_allocate_threshold' ));
 echo '</select>';
 ?>
