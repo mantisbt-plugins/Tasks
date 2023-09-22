@@ -51,7 +51,7 @@ $colspan=6;
 </tr>
 <?php
 # Pull all Tasks-Record entries for the current user
-$query = "SELECT a.*,b.taskcat_title FROM {plugin_Tasks_defined}e as a,{plugin_Tasks_cat} as b  WHERE a.taskcat_id=b.taskcat_id and task_completed = '0000-00-00 00:00:00' and task_handler>0 ORDER BY task_handler,task_due ASC";
+$query = "SELECT a.*,b.taskcat_title FROM {plugin_Tasks_defined} as a,{plugin_Tasks_cat} as b  WHERE a.taskcat_id=b.taskcat_id and task_completed = '0000-00-00 00:00:00' and task_handler>0 ORDER BY task_handler,task_due ASC";
 $result = db_query($query);
 while ($row = db_fetch_array($result)) {
 	?>
