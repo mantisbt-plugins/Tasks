@@ -39,7 +39,7 @@ with
 
 In that case, you need to position the following line somewhere in bug_view_inc.php.
 Search the line holding "# User list monitoring the bug" around line 686 and add the following line just before:
-		event_signal( 'EVENT_VIEW_BUG_DETAILS2', array( $tpl_bug_id ) );
+		event_signal( 'EVENT_VIEW_BUG_DETAILS2', array( $f_issue_id ) );
 
 ********************************************************************************************
 * Installation                                                                             *
