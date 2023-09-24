@@ -4,7 +4,8 @@ $form_vars = $$reqVar;
 $edit_id = $form_vars['edit_id'] ;
 $bug_id		= $form_vars['id'] ;
 require_once( '../../../core.php' );
-
+$js = '/plugin_file.php?file=Tasks/tasks.js';//plugin_file('tasks.js');
+echo <<<RESOURCES <script type="text/javascript" src="{$js}"></script> RESOURCES;
 
 // get current values
 $query = "SELECT * FROM {plugin_Tasks_defined} WHERE task_id = $edit_id ";
@@ -97,7 +98,7 @@ echo '</select>';
 </td>
 </tr><tr>
 <td><input name="Update" type="submit" value="Update"></td>
-<td><input type="button" value="Cancel" onclick="self.close()"></td>
+<td><input type="button" value="Cancel" class="task_cancel_action"></td>
 </tr>
 </center>
 </form>
