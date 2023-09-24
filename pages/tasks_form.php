@@ -198,7 +198,7 @@ if ( access_has_bug_level( plugin_config_get( 'tasks_view_threshold' ), $bug_id 
 		if ( $row['task_completed'] === "0000-00-00 00:00:00"){
 			if ( access_has_bug_level( plugin_config_get( 'tasks_update_threshold' ), $bug_id ) OR ($row["task_handler"] == $user)) {
 				?>
-				<a href="#" onclick="window.open('plugins/Tasks/pages/task_action_update.php?update_id=<?php echo $row["task_id"]; ?>&id=<?php echo $bug_id;?>&time=<?php echo $row['task_time'];?>', 'TaskUpdate', 'width=800, height=500'); return false;"><?php echo lang_get( 'task_update' ) ?></a><br>
+				<a href="#" class="task_update_action" data-taskid="<?= $row["task_id"]?>" data-id="<?= $bug_id;?>" data-time="<?= $row['task_time'];?>"><?php echo lang_get( 'task_update' ) ?></a><br>
 
 				<?php
 			}
@@ -208,7 +208,7 @@ if ( access_has_bug_level( plugin_config_get( 'tasks_view_threshold' ), $bug_id 
 			} 
 			if ( access_has_bug_level( plugin_config_get( 'tasks_edit_threshold' ), $bug_id ) OR ($row["task_user"] == $user) ) {
 				?>
-				<a href="#" onclick="window.open('plugins/Tasks/pages/task_action_edit.php?edit_id=<?php echo $row["task_id"]; ?>&response=<?php echo $row['task_response']; ?>&id=<?php echo $bug_id;?>', 'TaskEdit', 'width=800, height=600'); return false;"><?php echo lang_get( 'task_edit' ) ?></a><br>
+				<a href="#" class="task_edit_action" data-taskid="<?= $row["task_id"]?>" data-response="<?= $row['task_response'];?>" data-id="<?= $bug_id;?>"><?php echo lang_get( 'task_edit' ) ?></a><br>
 				<?php
 			}
 			if ( access_has_bug_level( plugin_config_get( 'tasks_delete_threshold' ), $bug_id ) ) {?>
