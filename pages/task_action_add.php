@@ -19,7 +19,7 @@ $handler	= $_REQUEST['task_handler'];
 if ( ON == $use_groups ) {
 	$group		= $_REQUEST['task_group'];
 }
-$taskcat	= $_REQUEST['cat_id'];
+$taskcat	= (int)$_REQUEST['cat_id'];
 $title		= htmlentities($_REQUEST['task_title'],ENT_QUOTES,'UTF-8');
 $desc		= htmlentities($_REQUEST['task_desc'],ENT_QUOTES,'UTF-8');
 $task_due 	= date('Y-m-d H:i', strtotime($_REQUEST["task_due"]));
