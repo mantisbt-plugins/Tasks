@@ -1,15 +1,17 @@
 <?php
 class TasksPlugin extends MantisPlugin {
 
+public string $nonce;
 	function register() {
 		$this->name        = 'Tasks';
 		$this->description = lang_get( 'tasks_plugin_desc' );
-		$this->version     = '3.20';
+		$this->version     = '3.30';
 		$this->requires    = array('MantisCore'       => '2.0.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
 		$this->url         = 'https://github.com/mantisbt-plugins/Tasks';
 		$this->page		   = 'config';
+		$this->nonce = crypto_generate_uri_safe_nonce( 16 );
 	}
 
 
@@ -27,6 +29,7 @@ class TasksPlugin extends MantisPlugin {
 		plugin_event_hook( 'EVENT_CLOSE_BUG', 'CheckTasks' );
 		plugin_event_hook( 'EVENT_BUG_DELETED', 'DeleteTasks' );
 		plugin_event_hook( 'EVENT_CORE_HEADERS', 'csp_headers' );
+		plugin_event_hook( 'EVENT_LAYOUT_RESOURCES', 'add_resources' );
 		$showmenu =  config_get( 'tasks_show_menu' );
 		if (ON === $showmenu){
 			plugin_event_hook( 'EVENT_MENU_MAIN', 'tasks_menu1' );
@@ -38,10 +41,15 @@ class TasksPlugin extends MantisPlugin {
 	}
 
 	function csp_headers() {
-//		http_csp_add( 'default-src', self );
-		http_csp_add( 'default-src', unsafe-inline );
+		http_csp_add( 'default-src', "'self'" );
+		http_csp_add( 'default-src', "'unsafe-inline'" );
+		http_csp_add( 'script-src', "'nonce-{$this->nonce}'" );
 	}
 
+	function add_resources(){
+		$js = plugin_file('tasks.js');
+		return <<<RESOURCES <script type="text/javascript" src="{$js}"></script> RESOURCES;
+	}
 
 	function schema() {
 		return array(
@@ -108,7 +116,6 @@ class TasksPlugin extends MantisPlugin {
 	}
 
  	function tasks_menu1() {
-// 		 return array('<a href="'. plugin_page( 'my_tasks.php' ) . '">' . lang_get( 'plugin_tasks_mytasks' ) . '</a>' );
 		$links = array();
 		$links[] = array(
 		'title' => lang_get("plugin_tasks_mytasks"),
