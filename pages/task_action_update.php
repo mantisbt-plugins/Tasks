@@ -1,5 +1,7 @@
 <?PHP
 require_once( '../../../core.php' );
+$js = '/plugin_file.php?file=Tasks/tasks.js';//plugin_file('tasks.js');
+echo <<<RESOURCES <script type="text/javascript" src="{$js}"></script> RESOURCES;
 
 $reqVar		= '_' . $_SERVER['REQUEST_METHOD'];
 $form_vars	= $$reqVar;
@@ -42,6 +44,6 @@ if (access_has_global_level( config_get( 'plugin_Tasks_tasks_finish_threshold' )
 }
 ?>
 <td><input name="Update" type="submit" value="Update"></td>
-<td><input type="button" value="Cancel" onclick="self.close()"></td>
+<td><input type="button" value="Cancel" class="task_cancel_action"></td>
 </tr>
 </form>
