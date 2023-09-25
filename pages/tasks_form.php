@@ -9,12 +9,6 @@
 $user 			= auth_get_current_user_id();
 $bug_id			= gpc_get_int( 'id' );
 $t_date_format = config_get( 'normal_date_format' );
-# what is the table for tasks
-$tasks_table	= plugin_table('defined');
-$taskscat_table	= plugin_table('cat');
-$grp_table	= plugin_table('groups','Usergroups');
-$ugrp_table	= plugin_table('usergroup','Usergroups');
-
 # do we allow to allocate to group?
 $use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
 require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );
