@@ -8,17 +8,16 @@
 ########################################################
 $user 			= auth_get_current_user_id();
 $bug_id			= gpc_get_int( 'id' );
-
+$t_date_format = config_get( 'normal_date_format' );
 # what is the table for tasks
 $tasks_table	= plugin_table('defined');
 $taskscat_table	= plugin_table('cat');
+$grp_table	= plugin_table('groups','Usergroups');
+$ugrp_table	= plugin_table('usergroup','Usergroups');
 
 # do we allow to allocate to group?
 $use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
-$grp_table	= plugin_table('groups','Usergroups');
-$ugrp_table	= plugin_table('usergroup','Usergroups');
 require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );
-
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
@@ -40,9 +39,8 @@ if ( access_has_bug_level(plugin_config_get( 'tasks_add_threshold' ), $bug_id ) 
 	<input type="hidden" name="bug_id" value="<?php echo $bug_id;  ?>">
 	<input type="hidden" name="id" value="<?php echo $bug_id;  ?>">
 	<input type="hidden" name="user" value="<?php echo $user;  ?>">
-	<input type="hidden" name="tasks_table" value="<?php echo $tasks_table;  ?>">
-<div class="widget-box widget-color-blue2">
-<div class="widget-header widget-header-small">
+	<div class="widget-box widget-color-blue2">
+	<div class="widget-header widget-header-small">
 	<h4 class="widget-title lighter">
 		<i class="ace-icon fa fa-text-width"></i>
 		<?php echo lang_get( 'tasks' ) . ': ' ?>
@@ -76,12 +74,12 @@ if ( access_has_bug_level(plugin_config_get( 'tasks_add_threshold' ), $bug_id ) 
 	<select <?php echo helper_get_tab_index() ?> name="cat_id"  STYLE="width: 200px">
 	<?php
 	$project =  helper_get_current_project();
-	$query="select * from $taskscat_table where project_id=$project order by taskcat_title" ;
+	$query="select * from {plugin_Tasks_cat} where project_id=$project order by taskcat_title" ;
 	$result = db_query($query);
 	$res2=db_num_rows($result);
 	if ($res2 == 0){
 		$project=0;
-		$query="select * from $taskscat_table where project_id=$project order by taskcat_title";
+		$query="select * from {plugin_Tasks_cat} where project_id=$project order by taskcat_title";
 		$result = db_query($query);
 	} else {
 		$t_id =  0;
@@ -104,7 +102,7 @@ if ( access_has_bug_level(plugin_config_get( 'tasks_add_threshold' ), $bug_id ) 
 	<?php
 	if ( ON == $use_groups ) {
 		echo '<select name="task_group">';
-		$sql9 = "select distinct a.group_id,group_name from $grp_table a,$ugrp_table b where a.group_id=b.group_id order by group_name";
+		$sql9 = "select distinct a.group_id,group_name from {plugin_Usergroups_groups} a,{plugin_Usergroups_usergroup} b where a.group_id=b.group_id order by group_name";
 		$result9 = db_query($sql9);
 		echo '<option value="0"';
 		echo '> </option>' . "\n";
@@ -128,7 +126,7 @@ if ( access_has_bug_level(plugin_config_get( 'tasks_add_threshold' ), $bug_id ) 
     <br><br>
 
 	<?php
-	$t_date_to_display = ''; 
+	$t_date_to_display = date($t_date_format); 
 	echo '<input ' . helper_get_tab_index() . ' type="text" id="task_due" name="task_due" class="datetimepicker input-sm" ' .
 				'data-picker-locale="' . lang_get_current_datetime_locale() .
 				'" data-picker-format="' . config_get( 'datetime_picker_format' ) . '" ' .
@@ -151,7 +149,7 @@ if ( access_has_bug_level(plugin_config_get( 'tasks_add_threshold' ), $bug_id ) 
 }
 if ( access_has_bug_level( plugin_config_get( 'tasks_view_threshold' ), $bug_id ) ) {
 	# Pull all Tasks-Record entries for the current Bug
-	$query = "SELECT a.*,b.taskcat_title FROM $tasks_table as a,$taskscat_table as b  WHERE a.taskcat_id=b.taskcat_id and  bug_id = $bug_id ORDER BY taskcat_title";
+	$query = "SELECT a.*,b.taskcat_title FROM {plugin_Tasks_defined} as a,{plugin_Tasks_cat} as b  WHERE a.taskcat_id=b.taskcat_id and  bug_id = $bug_id ORDER BY taskcat_title";
 
 	$result = db_query($query);
 	while ($row = db_fetch_array($result)) {
@@ -162,7 +160,6 @@ if ( access_has_bug_level( plugin_config_get( 'tasks_view_threshold' ), $bug_id 
 		echo $row["task_id"];
 		?>
 		</div></td>
-
 		<td><div align="center"><?php  echo html_entity_decode($row["task_title"]); ?>
 		<br>
 		<?PHP		echo html_entity_decode($row["taskcat_title"]);	?>
@@ -176,7 +173,7 @@ if ( access_has_bug_level( plugin_config_get( 'tasks_view_threshold' ), $bug_id 
 		}
 		?>
 		<br>
-				<?php  echo date("Y.m.d", strtotime($row["task_due"])); ?>
+				<?php  echo date("$t_date_format", strtotime($row["task_due"])); ?>
 		</td>
 		<td><div align="left">
 		<?PHP
