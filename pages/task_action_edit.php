@@ -6,7 +6,6 @@ $bug_id		= $form_vars['id'] ;
 require_once( '../../../core.php' );
 $js = '/plugin_file.php?file=Tasks/tasks.js';//plugin_file('tasks.js');
 echo <<<RESOURCES <script type="text/javascript" src="{$js}"></script> RESOURCES;
-
 // get current values
 $query = "SELECT * FROM {plugin_Tasks_defined} WHERE task_id = $edit_id ";
 $result = db_query($query);
@@ -21,7 +20,6 @@ $group = $row['task_group'];
 $allocate_level = config_get( 'plugin_Tasks_tasks_allocate_threshold' );
 # do we allow to allocate to group?
 $use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
-
 ?>
 <?php echo 'Tasks : ' . lang_get( 'task_edit_comments' ). ' => Issue-ID:  '.$bug_id.' => '.$description?>
 <form name="taskediting" method="post" action="../../../plugins/Tasks/pages/task_action_edit2.php">
@@ -46,7 +44,6 @@ $use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
 <textarea name="task_title" rows="3" cols="50"><?php echo $title;  ?></textarea>
 </td>
 <td>
-
 <?php
 $t_date_to_display = $task_due; 
 ?>
@@ -59,7 +56,6 @@ $t_date_to_display = $task_due;
 </td>
 <td>
 <?php
-
 if ( ON == $use_groups ) {
 	echo '<select name="task_group">';
 	$sql9 = "select distinct a.group_id,group_name from {plugin_Usergroups_groups} a,{plugin_Usergroups_usergroup} b where a.group_id=b.group_id order by group_name"; 
@@ -77,7 +73,6 @@ if ( ON == $use_groups ) {
 	echo '<br><br>';
 
 }
-//$project_id=0;
 $handler=intval($handler);
 echo '<select name="task_handler">';
 echo '<option value="0"';
