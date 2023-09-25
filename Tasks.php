@@ -228,7 +228,7 @@ function CreateTasks2($p_event,$p_bug_data,$p_bug_data2) {
 
 		// if not, do we have tasks for this project/Status ??
 		if ($count <1){
-				$query		="select * from {plugin_Tasks_autodefined}{plugin_Tasks_autodefined}{plugin_Tasks_autodefined} where project_id=$project and category_id=0 and autotask_status = $status";
+				$query		="select * from {plugin_Tasks_autodefined} where project_id=$project and category_id=0 and autotask_status = $status";
 				$result		= db_query($query);
 				$count		= db_num_rows($result) ;
 				// if not, do we have tasks in general for this status ??
