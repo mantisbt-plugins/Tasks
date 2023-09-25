@@ -1,3 +1,3 @@
-Version: 3.20 #
+Version: 3.30 #
 Devurl: https://github.com/mantisbt-plugins/Tasks/blob/main/version.txt #
 Location: https://github.com/mantisbt-plugins/Tasks/archive/refs/heads/main.zip #
