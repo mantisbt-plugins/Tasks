@@ -3,7 +3,7 @@
 $edit_id			= gpc_get_int( 'edit_id' );
 $title		= htmlentities($_REQUEST['taskcat_title'],ENT_COMPAT,'UTF-8');
 $project = $_REQUEST['project'];
-// does the new value already exist ??
+// does the new value already exist ?
 $query= "select * from {plugin_Tasks_cat} where project_id='$project' and upper(trim(taskcat_title))=upper(trim('$title'))";
 $result = db_query($query);
 $res2=db_num_rows($result);
