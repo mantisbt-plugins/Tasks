@@ -6,7 +6,6 @@
 # To be used with Mantis 2.x and above
 #
 ########################################################
-# what is the table for tasks
 layout_page_header(  );
 layout_page_begin( );
 print_manage_menu();
