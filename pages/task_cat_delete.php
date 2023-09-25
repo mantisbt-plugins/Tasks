@@ -1,7 +1,7 @@
 <?PHP
 require_once( '../../../core.php' );
 $delete_id = $_REQUEST['delete_id'] ;
-// first check if this entry is already in use
+// first check if this entry is still in use
 $query= "select * from {plugin_Tasks_defined} where taskcat_id= $delete_id";
 $result = db_query($query);
 $res2=db_num_rows($result);
