@@ -2,7 +2,6 @@
 $reqVar = '_' . $_SERVER['REQUEST_METHOD'];
 $form_vars = $$reqVar;
 $finish_id = $form_vars['finish_id'] ;
-
 $bug_id		= $form_vars['id'] ;
 require_once( '../../../core.php' );
 require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );  
@@ -26,7 +25,6 @@ $query = "UPDATE {plugin_Tasks_defined} set task_changed=NOW(),task_completed=NO
 if(!db_query($query)){ 
 	trigger_error( 'ERROR_DB_QUERY_FAILED', ERROR );
 }
-
 # email send to handler of task
 # should mail be send to assignee
 $create_mail_finish	= config_get( 'plugin_Tasks_tasks_mail_finish' );
