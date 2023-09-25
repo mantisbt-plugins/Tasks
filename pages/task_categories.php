@@ -23,8 +23,6 @@ $link2=plugin_page('task_definition');
 		<?php echo 'Tasks : ' . lang_get( 'task_categories' )?>
 	</h4>
 </div>
-
-
 <div class="widget-body">
 <div class="widget-main no-padding">
 <div class="table-responsive"> 
