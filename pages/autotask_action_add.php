@@ -9,11 +9,10 @@ $desc		= htmlentities($_REQUEST['autotask_desc'],ENT_COMPAT,'UTF-8');
 $duedays = $_REQUEST["autotask_due"];
 $status = $_REQUEST["tasks_auto_start_status"];
 $save_desc = db_prepare_string($desc);
-
+// perform some checks and trigger error if not as required
 if ($handler == 0) {
 	trigger_error( 'ERROR_TASKS_NOHANDLER', ERROR );
 }
-
 if (empty($title)) {
 	trigger_error( 'ERROR_BUG_EMPTY_TITLE', ERROR );
 }
@@ -29,8 +28,7 @@ if (empty($category)) {
 if (empty($taskcategory)) {
 	trigger_error( 'ERROR_NO_TASKCATEGORY', ERROR );
 }
-
-
+// all ok, so add the autotask to the database
 $query = "INSERT INTO {plugin_Tasks_autodefined} ( project_id,category_id, autotask_handler,autotaskcat_id,autotask_title,autotask_desc,autotask_due,autotask_status )
   		VALUES (  '$project','$category', '$handler','$taskcategory','$title', '$save_desc',   '$duedays','$status')";
 if(!db_query($query)){
