@@ -71,7 +71,7 @@ After copying to your webserver :
 - Start mantis ad administrator
 - Select manage
 - Select manage Plugins
-- Select Install behind Tasks 2.20
+- Select Install behind Tasks 3.3.
 - Once installed, click on the plugin-name for further configuration.
 
 In case for whatever reason tables are not created automatically, use the supplies Tasks.sql file to create these manually.
