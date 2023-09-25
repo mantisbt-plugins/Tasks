@@ -7,6 +7,7 @@
  * @param int $p_bug_id
  * @param string $p_message
  * @return null
+ * support to be found on github.com/mantisbt-plugins/Tasks
  */
 function email_task_reminder( $p_recipients, $p_bug_id, $p_message ) {
 	if( !is_array( $p_recipients ) ) {
