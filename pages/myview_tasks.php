@@ -7,14 +7,12 @@
 #
 ########################################################
 $user 			= auth_get_current_user_id();
-
 $query = "SELECT * FROM {plugin_Tasks_defined} WHERE task_handler = $user  and task_completed = '0000-00-00 00:00:00' ORDER BY task_due ASC";
 $result = db_query($query);
 $t_count=db_num_rows($result);
 require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );  
 $use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
 if ( ON == $use_groups){
-	$ugrp_table	= plugin_table('usergroup','Usergroups');
 	$query2 = "SELECT * FROM {plugin_Tasks_defined},{plugin_Usergroups_usergroup}  WHERE task_group= group_id and user_id = $user  and task_completed = '0000-00-00 00:00:00' ORDER BY task_due ASC";
 	$result2 = db_query($query2);
 	$t_count2=db_num_rows($result2);
