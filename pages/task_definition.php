@@ -81,7 +81,6 @@ if ($project>0) {
 }
 ?>
 </td>
-
 <td nowrap><div align="left">
 <input name="autotask_title" type="text" size=26 maxlength=50 >
 <br><br>
@@ -91,7 +90,6 @@ if ($project>0) {
 <?php print_enum_string_option_list( 'status', '10' ) ?>;
 </select> 
 </td>
-
 <td>
 <?php
 $handler=0;
@@ -103,7 +101,6 @@ echo '</select>';
 <td><div align="left">
 <textarea name="autotask_desc" rows="5" cols="30"></textarea>
 </div>
-
 <td>
 <input name="autotask_due" type="text" size=2 maxlength=2 >
 </td>
@@ -115,7 +112,6 @@ echo '</select>';
 </div>
 </div>
 </div>
-
 <?PHP
 # Pull all Auto Tasks-Record entries 
 $query = "SELECT * FROM {plugin_Tasks_autodefined}  ORDER BY project_id, category_id";
