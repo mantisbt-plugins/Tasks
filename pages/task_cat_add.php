@@ -8,7 +8,7 @@ $res2=db_num_rows($result);
 if ($res2 === 0){
 	$query = "INSERT INTO {plugin_Tasks_cat} ( project_id,taskcat_title ) VALUES ( '$project', '$title' )";
 	if(!db_query($query)){
-	trigger_error( 'ERROR_DB_QUERY_FAILED', ERROR );
-}
+		trigger_error( 'ERROR_DB_QUERY_FAILED', ERROR );
+	}
 }
 print_header_redirect( 'plugin.php?page=Tasks/task_categories' );
