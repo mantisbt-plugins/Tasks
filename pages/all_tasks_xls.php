@@ -14,11 +14,7 @@ $t_export_title = ereg_replace( '[\/:*?"<>|]', '', $t_export_title );
 header( 'Pragma: public' );
 header( 'Content-Type: application/vnd.ms-excel' );
 header( 'Content-Disposition: attachment; filename="' . $t_export_title . '.xls"' );
-
-# what is the table for tasks$tasks_table	= plugin_table('defined');
-$taskscat_table	= plugin_table('cat');
 require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );  
-
 ?>
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:x="urn:schemas-microsoft-com:office:excel"
