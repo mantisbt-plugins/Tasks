@@ -48,15 +48,8 @@ $use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
 <td>
 
 <?php
-	$t_date_to_display = $task_due; 
-
-/*	echo '<input ' . helper_get_tab_index() . ' type="text" id="task_due1" name="task_due" class="datetimepicker input-sm" ' .
-			'data-picker-locale="' . lang_get_current_datetime_locale() .
-				'" data-picker-format="' . config_get( 'datetime_picker_format' ) . '" ' .
-				'size="8" maxlength="16" value="' . $t_date_to_display . '" />' ?>
-			<i class="fa fa-calendar fa-xlg datetimepicker"></i> 
-*/
-	?>
+$t_date_to_display = $task_due; 
+?>
 <input type="text" id="task_due1" name="task_due1" class="datetimepicker input-sm"
 						data-picker-locale="<?php echo lang_get_current_datetime_locale() ?>"
 						data-picker-format="<?php echo config_get( 'datetime_picker_format' ) ?>"
