@@ -4,7 +4,7 @@ $form_vars = $$reqVar;
 $delete_id = $form_vars['delete_id'] ;
 $bug_id		= $form_vars['id'] ;
 require_once( '../../../core.php' );
-# should event be logged in the project
+# should event be logged in the project?
 $create_his		= config_get( 'plugin_Tasks_tasks_history' );
 // get current values
 $query = "SELECT * FROM {plugin_Tasks_defined} WHERE task_id = $delete_id ";
