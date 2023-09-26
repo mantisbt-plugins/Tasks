@@ -9,7 +9,6 @@
 layout_page_header(  );
 layout_page_begin(  );
 print_manage_menu();
-$excel = config_get( 'icon_path' )."excelicon.gif";
 $excelpage = plugin_page('all_tasks_xls.php');
 require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );  
 $colspan=6;
