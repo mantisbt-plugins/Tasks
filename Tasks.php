@@ -30,7 +30,7 @@ public string $nonce;
 		plugin_event_hook( 'EVENT_BUG_DELETED', 'DeleteTasks' );
 		plugin_event_hook( 'EVENT_CORE_HEADERS', 'csp_headers' );
 		plugin_event_hook( 'EVENT_LAYOUT_RESOURCES', 'add_resources' );
-		$showmenu =  config_get( 'tasks_show_menu' );
+		$showmenu =  plugin_config_get( 'tasks_show_menu' );
 		if (ON === $showmenu){
 			plugin_event_hook( 'EVENT_MENU_MAIN', 'tasks_menu1' );
 		} else {
@@ -48,7 +48,9 @@ public string $nonce;
 
 	function add_resources(){
 		$js = plugin_file('tasks.js');
-		return <<<RESOURCES <script type="text/javascript" src="{$js}"></script> RESOURCES;
+		return <<<RESOURCES
+<script type="text/javascript" src="{$js}"></script>
+RESOURCES;
 	}
 
 	function schema() {
@@ -57,9 +59,9 @@ public string $nonce;
 						autotask_id			I       NOTNULL UNSIGNED AUTOINCREMENT PRIMARY,
 						project_id			I       DEFAULT NULL,
 						category_id			I       DEFAULT NULL,
-						autotask_title		C(50)	,
 						autotask_handler	I		DEFAULT NULL,
 						autotaskcat_id		I		DEFAULT NULL,
+						autotask_title		C(50)	,
 						autotask_desc		C(250)	,
 						autotask_due		I		DEFAULT NULL,
 						autotask_status		I2		NOTNULL DEFAULT '10'

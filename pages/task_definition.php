@@ -1,8 +1,8 @@
 <?php
 auth_reauthenticate();
 access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
-layout_page_header( lang_get( 'plugin_format_title' ) );
-layout_page_begin( );
+layout_page_header();
+layout_page_begin();
 print_manage_menu();
 $link=plugin_page('config');
 $link2=plugin_page('task_categories');
@@ -12,11 +12,12 @@ $presult1 = db_query($pquery1);
 if ($presult1){
 	$projectname1 = db_result( $presult1 );
 }
+require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );
+$category = 0;
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
 <div class="form-container" > 
-<form action="<?php echo plugin_page( 'config_edit' ) ?>" method="post">
 <div class="widget-box widget-color-blue2">
 <div class="widget-header widget-header-small">
 	<h4 class="widget-title lighter">
@@ -35,13 +36,16 @@ if ($presult1){
 </td>
 </tr>
 <tr>
-<td class="category" colspan="8">
+<td class="category" colspan="9">
 </td>
 </tr>
 <tr>
-<td class="form-title" colspan="8">
+<td class="form-title" colspan="2">
 <?php echo lang_get( 'plugin_tasks_title' ) . ': ' . lang_get( 'task_definition' ) ?>
-</td>
+</td><td>
+<b><font color=red >
+<?php echo lang_get( 'task_mandatory')?>
+</font></b>
 </tr>
 
 <td colspan="8" class="row-category"><div align="left"><a name="taskrecord"></a>
@@ -54,6 +58,7 @@ if ($presult1){
 <td><div align="center"><?php echo lang_get( 'autotask_title' ); ?></div></td>
 <td><div align="center"><?php echo lang_get( 'tasks_auto_start_status' ); ?></div></td>
 <td><div align="center"><?php echo lang_get( 'autotask_handler' ); ?></div></td>
+<td><div align="center"><?php echo lang_get( 'task_category' ); ?></div></td>
 <td><div align="center"><?php echo lang_get( 'autotask_desc' ); ?></div></td>
 <td><div align="center"><?php echo lang_get( 'autotask_due' ); ?></div></td> 
 <td><div align="center"><?php echo lang_get( 'task_actions' ); ?></div></td>
@@ -61,7 +66,7 @@ if ($presult1){
 <form name="taskadding2" action="<?php echo plugin_page( 'autotask_action_add' ) ?>" method="post">
 <input type="hidden" name="project" value="<?php echo $project;  ?>">
 <tr>
-<tr <?php echo helper_alternate_class() ?>>
+<tr>
 <td>
 <?php
 echo $projectname1;
@@ -95,6 +100,14 @@ if ($project>0) {
 $handler=0;
 echo '<select name="autotask_handler">';
 print_assign_to_option_list( $handler, 0 ,plugin_config_get( 'tasks_allocate_threshold' ));
+echo '</select>';
+?>
+</td>
+<td>
+<?php
+$handler=0;
+echo '<select name="taskcat_id">';
+print_taskcategory_option_list($project);
 echo '</select>';
 ?>
 </td>
@@ -134,7 +147,7 @@ while ($row = db_fetch_array($result)) {
 		$categoryname= "--" ;
 	}
 	?>
-	<tr <?php echo helper_alternate_class() ?>>
+	<tr>
 	<td><div align="center">
 	<?php echo $projectname; ?>
 	</div></td>
@@ -161,7 +174,7 @@ while ($row = db_fetch_array($result)) {
 	?>
 	</div></td>
 	<td><div>
-	<a href="plugins/Tasks/pages/autotask_action_delete.php?delete_id=<?php echo $row["autotask_id"]; ?>"><?php echo lang_get( 'task_delete' ) ?></a>
+	<a href="plugin.php?page=Tasks/autotask_action_delete&delete_id=<?php echo $row["autotask_id"]; ?>"><?php echo lang_get( 'task_delete' ) ?></a>
 	</div></td>
 	</tr>
 	<?php

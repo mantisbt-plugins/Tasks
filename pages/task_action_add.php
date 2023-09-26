@@ -1,7 +1,5 @@
 <?PHP
-require_once( '../../../core.php' );
 require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );
-
 $user 			= gpc_get_int( 'user' );
 $bug_id			= gpc_get_int( 'bug_id' );
 # should event be logged in the project
@@ -37,7 +35,7 @@ if (empty($task_due)) {
 }
 // all ok, so add to database
 $save_desc = db_prepare_string($desc);
-$query = "INSERT INTO $tasks_table ( bug_id,task_user, task_handler,task_title,task_desc,task_created,task_due,task_changed,taskcat_id,task_group )
+$query = "INSERT INTO {plugin_Tasks_defined} ( bug_id,task_user, task_handler,task_title,task_desc,task_created,task_due,task_changed,taskcat_id,task_group )
  	VALUES (  '$bug_id','$user', '$handler', '$title', '$save_desc',  NOW(), '$task_due', NOW(), '$taskcat','$group')";
 if(!db_query($query)){
 	trigger_error( 'ERROR_DB_QUERY_FAILED', ERROR );
@@ -82,4 +80,4 @@ if ( ON == $create_mail ) {
 	}
 }
 
-print_header_redirect( '../../../view.php?id='.$bug_id.'' );
+print_header_redirect( 'view.php?id='.$bug_id.'' );

@@ -3,7 +3,6 @@ $reqVar = '_' . $_SERVER['REQUEST_METHOD'];
 $form_vars = $$reqVar;
 $delete_id = $form_vars['delete_id'] ;
 $bug_id		= $form_vars['id'] ;
-require_once( '../../../core.php' );
 # should event be logged in the project?
 $create_his		= config_get( 'plugin_Tasks_tasks_history' );
 // get current values
@@ -16,4 +15,4 @@ db_query($query);
 if ( ON == $create_his ) {
 	history_log_event_direct( $bug_id, 'Task',$row['task_title'], "Deleted", $user );
 }
-print_header_redirect( '../../../view.php?id='.$bug_id.'' );
+print_header_redirect( 'view.php?id='.$bug_id.'' );

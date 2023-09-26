@@ -1,6 +1,6 @@
 <?PHP
-	$s_plugin_tasks_title = "Tasking Plugin";
-	$s_tasks_plugin_desc = " Tasking Plugin";
+	$s_plugin_tasks_title = "Task Plugin";
+	$s_tasks_plugin_desc = " Task Plugin";
 	$s_tasks_desc = "Allows for adding sub tasks for an issue to an authorized handler.";
 	$s_plugin_tasks_config = "Configuration";
 	$s_tasks_delete_threshold ="Treshold for deleting";
@@ -50,11 +50,12 @@
 	$s_issue_task = "View Issue";
 	$s_alltasks = '<b>All open Tasks:</b>';
 	$s_allcategories = '<b>All Task categories:</b>';
-
+	$s_task_category = "Task category";
 	$s_task_categories = "Task categories";
 	$s_taskcat_title = "Task Category name";
 	
 	$s_task_definition = "Automated tasks";
+	$s_task_mandatory  = "All fields are mandatory";
 	$s_task_configuration = "Configuration";
 	$s_autotask_title="Task";
 	$s_autotask_due ="Due days";
@@ -68,7 +69,6 @@
 	$s_alltasks = '<b>All Open Tasks:</b>';
 	$s_plugin_tasks_alltasks = "All Open Tasks";
 	
-	$s_task_category = "Category"; 
 	$s_tasks_update_bug = "Adjust last update issue";
 
 	$s_task_id ="ID";

@@ -3,7 +3,6 @@ $reqVar = '_' . $_SERVER['REQUEST_METHOD'];
 $form_vars = $$reqVar;
 $finish_id = $form_vars['finish_id'] ;
 $bug_id		= $form_vars['id'] ;
-require_once( '../../../core.php' );
 require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );  
 # should event be logged in the project
 $create_his		= config_get( 'plugin_Tasks_tasks_history' );
@@ -49,4 +48,4 @@ if ( ON == $create_his ) {
 }
 
 
-print_header_redirect( '../../../view.php?id='.$bug_id.'' );
+print_header_redirect( 'view.php?id='.$bug_id.'' );

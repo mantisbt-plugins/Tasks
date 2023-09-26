@@ -1,9 +1,5 @@
 <?PHP
 require_once( '../../../core.php' );
-/* 
-$js = '/plugin_file.php?file=Tasks/tasks.js';//plugin_file('tasks.js');
-echo <<<RESOURCES <script type="text/javascript" src="{$js}"></script> RESOURCES;
-*/
 $edit_id			= gpc_get_int( 'edit_id' );
 $title		= htmlentities($_REQUEST['task_title'],ENT_COMPAT,'UTF-8');
 $desc		= htmlentities($_REQUEST['task_desc'],ENT_COMPAT,'UTF-8');

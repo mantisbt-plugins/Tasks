@@ -12,6 +12,10 @@ $t_date_format = config_get( 'normal_date_format' );
 # do we allow to allocate to group?
 $use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
 require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );
+ $js = '/plugin_file.php?file=Tasks/tasks.js';
+ echo <<<RESOURCES
+  <script type="text/javascript" src="{$js}"></script>
+ RESOURCES;
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
@@ -29,7 +33,7 @@ $colspan=6;
 <?php
 if ( access_has_bug_level(plugin_config_get( 'tasks_add_threshold' ), $bug_id ) ) {
 ?>
-	<form name="taskadding" method="post" action="plugins/Tasks/pages/task_action_add.php">
+	<form name="taskadding" method="post" action="plugin.php?page=Tasks/task_action_add.php">
 	<input type="hidden" name="bug_id" value="<?php echo $bug_id;  ?>">
 	<input type="hidden" name="id" value="<?php echo $bug_id;  ?>">
 	<input type="hidden" name="user" value="<?php echo $user;  ?>">
@@ -194,7 +198,7 @@ if ( access_has_bug_level( plugin_config_get( 'tasks_view_threshold' ), $bug_id 
 				<?php
 			}
 			if ( access_has_bug_level( plugin_config_get( 'tasks_finish_threshold' ), $bug_id ) OR ($row["task_handler"] == $user)) {?>
-				<a href="plugins/Tasks/pages/task_action_finish.php?finish_id=<?php echo $row["task_id"]; ?>&id=<?php echo $bug_id;?>"><?php echo lang_get( 'task_finish' ) ?></a><br>
+				<a href="plugin.php?page=Tasks/task_action_finish.php&finish_id=<?php echo $row["task_id"]; ?>&id=<?php echo $bug_id;?>"><?php echo lang_get( 'task_finish' ) ?></a><br>
 				<?php
 			} 
 			if ( access_has_bug_level( plugin_config_get( 'tasks_edit_threshold' ), $bug_id ) OR ($row["task_user"] == $user) ) {
@@ -203,7 +207,7 @@ if ( access_has_bug_level( plugin_config_get( 'tasks_view_threshold' ), $bug_id 
 				<?php
 			}
 			if ( access_has_bug_level( plugin_config_get( 'tasks_delete_threshold' ), $bug_id ) ) {?>
-				<a href="plugins/Tasks/pages/task_action_delete.php?delete_id=<?php echo $row["task_id"]; ?>&id=<?php echo $bug_id;?>"><?php echo lang_get( 'task_delete' ) ?></a>
+				<a href="plugin.php?page=Tasks/task_action_delete.php&delete_id=<?php echo $row["task_id"]; ?>&id=<?php echo $bug_id;?>"><?php echo lang_get( 'task_delete' ) ?></a>
 				<?php
 			}
 		}

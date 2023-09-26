@@ -1,5 +1,4 @@
 <?PHP
-//require_once( '../../../core.php' );
 $project = gpc_get_string( 'project');
 $category = $_REQUEST['category'];
 $taskcategory = $_REQUEST['taskcat_id'];

@@ -1,7 +1,9 @@
 <?PHP
 require_once( '../../../core.php' );
-$js = '/plugin_file.php?file=Tasks/tasks.js';//plugin_file('tasks.js');
-echo <<<RESOURCES <script type="text/javascript" src="{$js}"></script> RESOURCES;
+$js = '/plugin_file.php?file=Tasks/tasks.js';
+echo <<RESOURCES 
+<script type="text/javascript" src="{$js}"></script> 
+RESOURCES;
 $reqVar		= '_' . $_SERVER['REQUEST_METHOD'];
 $form_vars	= $$reqVar;
 $update_id	= $form_vars['update_id'] ;

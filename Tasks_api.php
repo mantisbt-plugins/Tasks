@@ -97,3 +97,18 @@ function email_task_reminder2( $p_mail, $p_bug_id, $p_message ) {
 
 	return ;
 }
+function print_taskcategory_option_list($project_id){
+	$sap_table	= plugin_table('relations');
+	$query = "SELECT * FROM {plugin_Tasks_cat} where ( project_id = $project_id or project_id = 0 ) order by taskcat_title";
+	$result = db_query($query);
+	$t_blank_line = '' ;
+	PRINT '<option value="' . $t_blank_line . '" ';
+	PRINT '>' . $t_blank_line . '</option>';
+	while ($row = db_fetch_array($result)) {
+		$t_id = $row['taskcat_id'] ;
+		$t_name = $row['taskcat_title'] ;
+		PRINT '<option value="' . $t_id . '" ';
+		PRINT '>' . $t_name . '</option>';
+	}
+	return;
+}
