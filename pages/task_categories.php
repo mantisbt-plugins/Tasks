@@ -11,6 +11,7 @@ layout_page_begin( );
 print_manage_menu();
 $link=plugin_page('config');
 $link2=plugin_page('task_definition');
+$colspan=3;
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
