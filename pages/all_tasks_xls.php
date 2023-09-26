@@ -9,7 +9,7 @@
 require_once( 'core.php' );
 auth_ensure_user_authenticated();
 $t_export_title = "Export_all_open_tasks";
-$t_export_title = ereg_replace( '[\/:*?"<>|]', '', $t_export_title );
+$t_export_title = preg_replace( '[\/:*?"<>|]', '', $t_export_title );
 # Make sure that IE can download the attachments under https.
 header( 'Pragma: public' );
 header( 'Content-Type: application/vnd.ms-excel' );
