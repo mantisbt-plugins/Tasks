@@ -1,0 +1,96 @@
+<?PHP
+	$s_plugin_tasks_title = "Aufgaben Plugin";
+	$s_tasks_plugin_desc = " Aufgabenverwaltung";
+	$s_tasks_desc = "Berechtigte Personen dürfen hier Unteraufgaben erstellen";
+	$s_plugin_tasks_config = "Einstellungen";
+	$s_tasks_delete_threshold ="Mindestrecht zum Löschen";
+	$s_tasks_edit_threshold ="Mindestrecht zum Editieren";
+	$s_tasks_add_threshold ="Mindestrecht zum Hinzufügen";
+	$s_tasks_allocate_threshold ="Mindestrecht zum Allokieren";
+	$s_tasks_view_threshold ="Mindestrecht für die Anzeige";
+	$s_tasks_update_threshold ="Mindestrecht zum Ändern";
+	$s_tasks_finish_threshold ="Mindestrecht zum Abschließen";
+	$s_tasks_show_menu ="Zeige Meine Taks im Menü";
+	$s_tasks_admin_threshold ="Mindestrecht für die Verwaltung";
+	$s_tasks_history ="Änderungshistorie von Aufgaben behalten";
+	$s_tasks_mail ="Email senden, wenn eine neue Aufgabe erstellt wird";
+	$s_tasks_mail_finish = "Email senden, wenn Aufgabe beendet wurde";
+	$s_change_configuration ="Einstellungen Ändern";
+	$s_tasks_enabled= 'Ja';
+	$s_tasks_disabled='Nein';
+	$s_tasks_body ="Dir wurde die folgede Aufgabe zugewiesen: ";
+	$s_tasks_body_finish ="Die zugewiesene Aufgabe wurde beendet: ";
+	$s_tasks_date ="Soll fertiggestellt werden durch: ";
+	$s_tasks = 'Aufgabe zuweisen:';
+	$s_print_tasks = '<b>Zugewiesene Aufgaben:</b>';
+	$s_tasking_history = 'Aufgabenhistorie';
+
+	$s_task_user = 'Aufgabenbesitzer';
+	$s_task_handler = 'Aufgabe zugewiesen zu';
+	$s_task_submit = 'Aufgabe hinzufügen';
+	$s_taskcat_submit = 'Kategorie hinzufügen';
+
+	$s_task_cancel = 'Nicht Ändern';
+	$s_task_title="Aufgabe";
+	$s_task_due ="Fällig bis";
+	$s_task_desc="Beschreibung";
+	$s_task_response="Kommentare";
+	$s_task_completed="Fertig";
+	$s_task_actions="Aktionen";
+	$s_task_delete = "Löschen";
+	$s_task_update = "Ändern";
+	$s_task_edit = "Bearbeiten";
+	$s_task_finish = "Abschließen";
+	$s_task_update_comments = "Gib einen Kommentar für die Aufgabe ein";
+	$s_task_edit_comments = "Ändern der Aufgabe.";
+	$s_taskcat_edit_comments = "Ändern der Kategorie.";
+
+	$s_plugin_tasks_mytasks = "Meine Aufgaben";
+	$s_mytasks = '<b>Zugewiesene Aufgaben:</b>';
+	$s_issue_task = "Zeige Aufgabe";
+	$s_alltasks = '<b>Alle offenen Aufgaben:</b>';
+	$s_allcategories = '<b>Alle Aufgabenkategorieen:</b>';
+	$s_task_category = "Aufgabenkategorie";
+	$s_task_categories = "Aufgabenkategorien";
+	$s_taskcat_title = "Name der Aufgabenkategorie";
+
+	$s_task_definition = "Automatische Aufgaben";
+	$s_task_mandatory  = "Alle Felder müssen gefüllt werden";
+	$s_task_configuration = "Einstellungen";
+	$s_autotask_title="Aufgaben";
+	$s_autotask_due ="Fällig in Tagen";
+	$s_autotask_desc="Beschreibung";
+	$s_autotask_handler = 'Aufgabe zugewiesen zu';
+	$s_project = "Projekt";
+	$s_tasks_check = "Prüfe ob alle Aufgaben erledigt sind, bevor ein Eintrag erledigt wird";
+	$s_tasks_auto_start_status = "Status";
+
+	$s_task_bug = 'Bug-ID';
+	$s_alltasks = '<b>Alle offenen Aufgaben:</b>';
+	$s_plugin_tasks_alltasks = "Alle offenen Aufgaben";
+
+	$s_tasks_update_bug = "Letzte Änderung anpassen";
+
+	$s_task_id ="ID";
+
+	$s_tasks_assign_group	= "Aufgaben zu Gruppen zuweisen";
+
+	$s_tasks_hour_rate = "Rate pro Stunde";
+	$s_task_time	= "Minuten";
+	$s_tasks_clean = "Prüfen & löschen von orphaned/phantom Aufgaben";
+
+	$s_tasks_xls = "Excel";
+
+$MANTIS_ERROR['ERROR_BUG_OPEN_TASKS'] = 'Nicht alle Aufgaben dieses Eintrags wurden bearbeitet. Erledigen nicht möglich.';
+$MANTIS_ERROR['ERROR_BUG_EMPTY_TASKS'] = 'Keine Rückmeldung zur Aufgabe angegeben. Abschließen der Aufgabe nicht möglich.';
+
+$MANTIS_ERROR['ERROR_BUG_EMPTY_TITLE'] = 'Aufgabe besitzt keinen Titel.';
+$MANTIS_ERROR['ERROR_BUG_EMPTY_DESC'] = 'Aufgabe besitzt keine Beschreibung.';
+$MANTIS_ERROR['ERROR_BUG_EMPTY_DATE'] = 'Es wurde kein Fälligkeitsdatum angegeben.';
+
+$MANTIS_ERROR['ERROR_BUG_TASKS_CAT'] = 'Die Aufgabenkategorie ist in Verwendung und kann nicht gelöscht werden.';
+
+$MANTIS_ERROR['ERROR_TASKS_ONEHANDLER'] = 'Es darf nur einen Besitzer geben.';
+$MANTIS_ERROR['ERROR_TASKS_NOHANDLER'] = 'Ein Besitzer muß ausgewählt werden.';
+$MANTIS_ERROR['ERROR_NO_CATEGORY'] = 'Eine Kategorie muß ausgewählt werden.';
+$MANTIS_ERROR['ERROR_NO_TASKCATEGORY'] = 'Eine Kategorie muß ausgewählt werden.';
