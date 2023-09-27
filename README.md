@@ -129,7 +129,7 @@ License                                                                         
 This plugin is distributed under the same conditions as Mantis itself.
 
 ********************************************************************************************
-Mantis Issue                                                                               *
+Support for this plugin                                                                               *
 ********************************************************************************************
 https://github.com/mantisbt-plugins/Tasks
 
