@@ -1,10 +1,10 @@
 <?PHP
 $go = gpc_get_bool( 'Stop' );
+$bug_id	= gpc_get_int( 'id' );
 if ( $go ) {
 	$edit_id			= gpc_get_int( 'edit_id' );
 	$title		= htmlentities($_REQUEST['task_title'],ENT_COMPAT,'UTF-8');
 	$desc		= htmlentities($_REQUEST['task_desc'],ENT_COMPAT,'UTF-8');
-	$id			= gpc_get_int( 'id' );
 	$handler	= $_REQUEST['task_handler'];
 	$use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
 	if ( ON == $use_groups ) {
@@ -40,7 +40,6 @@ if ( $go ) {
 	$query = "SELECT * FROM {plugin_Tasks_defined} WHERE task_id = $edit_id ";
 	$result = db_query($query);
 	$row = db_fetch_array( $result );
-	$bug_id = $row['bug_id'];
 	// perform update
 	$save_desc = db_prepare_string($desc);
 	$save_title = db_prepare_string($title);
