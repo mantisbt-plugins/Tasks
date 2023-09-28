@@ -28,8 +28,6 @@ public string $nonce;
 		plugin_event_hook( 'EVENT_RESOLVE_BUG', 'CheckTasks' );
 		plugin_event_hook( 'EVENT_CLOSE_BUG', 'CheckTasks' );
 		plugin_event_hook( 'EVENT_BUG_DELETED', 'DeleteTasks' );
-		plugin_event_hook( 'EVENT_CORE_HEADERS', 'csp_headers' );
-		plugin_event_hook( 'EVENT_LAYOUT_RESOURCES', 'add_resources' );
 		$showmenu =  plugin_config_get( 'tasks_show_menu' );
 		if (ON === $showmenu){
 			plugin_event_hook( 'EVENT_MENU_MAIN', 'tasks_menu1' );
