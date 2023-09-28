@@ -1,9 +1,5 @@
 <?PHP
-require_once( '../../../core.php' );
-$js = '/plugin_file.php?file=Tasks/tasks.js';
-echo <<RESOURCES 
-<script type="text/javascript" src="{$js}"></script> 
-RESOURCES;
+// require_once( '../../../core.php' );
 $reqVar		= '_' . $_SERVER['REQUEST_METHOD'];
 $form_vars	= $$reqVar;
 $update_id	= $form_vars['update_id'] ;
@@ -15,9 +11,11 @@ $response	= $row['task_response'] ;
 $desc 		= $row['task_desc'];
 $user 		= auth_get_current_user_id();
 $time		= $row['task_time'] ;
+layout_page_header();
+layout_page_begin();
 ?>
 <center>		<?php echo 'Tasks : ' . lang_get( 'task_update_comments' ). ' => Issue-ID:  '.$id.' => '.$desc?></center>
-<form name="taskupdating" method="post" action="../../../plugins/Tasks/pages/task_action_update2.php">
+<form name="taskupdating" method="post" action="plugin.php?page=Tasks/task_action_update2.php">
 <input type="hidden" name="update_id" value="<?php echo $update_id;  ?>">
 <input type="hidden" name="id" value="<?php echo $id;  ?>">
 <td><div align="center">
@@ -39,7 +37,10 @@ if (access_has_global_level( config_get( 'plugin_Tasks_tasks_finish_threshold' )
 	<?php
 }
 ?>
-<td><input name="Update" type="submit" value="Update"></td>
-<td><input type="button" value="Cancel" class="task_cancel_action"></td>
+<input type="checkbox" name="Stop" value="Update" /> <?php echo lang_get( 'task_update' ) ?>
+&nbsp;&nbsp;&nbsp;
+<td><input name="Update" type="submit" value="Continue"></td>
 </tr>
 </form>
+<?PHP
+layout_page_end();

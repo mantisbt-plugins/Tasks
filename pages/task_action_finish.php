@@ -46,6 +46,4 @@ if ( ON == $update_issue ) {
 if ( ON == $create_his ) {
 	history_log_event_direct( $bug_id, 'Tasks', $row['task_title'], 'Finished', $user );
 }
-
-
-print_header_redirect( 'view.php?id='.$bug_id.'' );
+print_header_redirect( 'view.php?id='.$bug_id );

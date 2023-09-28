@@ -12,10 +12,6 @@ $t_date_format = config_get( 'normal_date_format' );
 # do we allow to allocate to group?
 $use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
 require_once( config_get( 'plugin_path' ) . 'Tasks' . DIRECTORY_SEPARATOR . 'Tasks_api.php' );
- $js = '/plugin_file.php?file=Tasks/tasks.js';
- echo <<<RESOURCES
-  <script type="text/javascript" src="{$js}"></script>
- RESOURCES;
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
@@ -193,7 +189,7 @@ if ( access_has_bug_level( plugin_config_get( 'tasks_view_threshold' ), $bug_id 
 		if ( $row['task_completed'] === "0000-00-00 00:00:00"){
 			if ( access_has_bug_level( plugin_config_get( 'tasks_update_threshold' ), $bug_id ) OR ($row["task_handler"] == $user)) {
 				?>
-				<a href="#" class="task_update_action" data-taskid="<?= $row["task_id"]?>" data-id="<?= $bug_id;?>" data-time="<?= $row['task_time'];?>"><?php echo lang_get( 'task_update' ) ?></a><br>
+				<a href="plugin.php?page=Tasks/task_action_update.php&update_id=<?php echo $row["task_id"]; ?>&id=<?php echo $bug_id;?>"><?php echo lang_get( 'task_update' ) ?></a><br>
 
 				<?php
 			}
@@ -203,7 +199,7 @@ if ( access_has_bug_level( plugin_config_get( 'tasks_view_threshold' ), $bug_id 
 			} 
 			if ( access_has_bug_level( plugin_config_get( 'tasks_edit_threshold' ), $bug_id ) OR ($row["task_user"] == $user) ) {
 				?>
-				<a href="#" class="task_edit_action" data-taskid="<?= $row["task_id"]?>" data-response="<?= $row['task_response'];?>" data-id="<?= $bug_id;?>"><?php echo lang_get( 'task_edit' ) ?></a><br>
+				<a href="plugin.php?page=Tasks/task_action_edit.php&edit_id=<?php echo $row["task_id"]; ?>&id=<?php echo $bug_id;?>"><?php echo lang_get( 'task_edit' ) ?></a><br>
 				<?php
 			}
 			if ( access_has_bug_level( plugin_config_get( 'tasks_delete_threshold' ), $bug_id ) ) {?>

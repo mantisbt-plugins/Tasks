@@ -51,6 +51,4 @@ Version 3.05		03-12-2020		Added Delete routine and Cleaning option
 									Bugfixes
 Version 3.10		05-02-2022		Improved Mantis 2.x compatibility
 									Bugfixes
-Version 3.20		16-04-20232		Complete review part 1
-Version 3.30		09-2023			Complete review part 2
-						Added German language
+Version 3.20		16-04-20232		Complete review

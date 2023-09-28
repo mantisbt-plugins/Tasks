@@ -40,19 +40,6 @@ public string $nonce;
 		
 	}
 
-	function csp_headers() {
-		http_csp_add( 'default-src', "'self'" );
-		http_csp_add( 'default-src', "'unsafe-inline'" );
-		http_csp_add( 'script-src', "'nonce-{$this->nonce}'" );
-	}
-
-	function add_resources(){
-		$js = plugin_file('tasks.js');
-		return <<<RESOURCES
-<script type="text/javascript" src="{$js}"></script>
-RESOURCES;
-	}
-
 	function schema() {
 		return array(
 			array( 'CreateTableSQL', array( plugin_table( 'autodefined' ), "
