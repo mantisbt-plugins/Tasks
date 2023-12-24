@@ -1,6 +1,6 @@
 <?PHP
 $go = gpc_get_bool( 'Stop' );
-$bug_id	= gpc_get_int( 'id' );
+$bug_id			= gpc_get_int( 'id' );
 if ( $go ) {
 	$edit_id			= gpc_get_int( 'edit_id' );
 	$title		= htmlentities($_REQUEST['task_title'],ENT_COMPAT,'UTF-8');

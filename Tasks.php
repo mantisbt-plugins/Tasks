@@ -5,7 +5,7 @@ public string $nonce;
 	function register() {
 		$this->name        = 'Tasks';
 		$this->description = lang_get( 'tasks_plugin_desc' );
-		$this->version     = '3.30';
+		$this->version     = '3.31';
 		$this->requires    = array('MantisCore'       => '2.0.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';

@@ -15,7 +15,6 @@ $colspan=6;
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
 <div class="form-container" > 
-<br/>
 <div class="widget-box widget-color-blue2">
 <div class="widget-header widget-header-small">
 	<h4 class="widget-title lighter">
@@ -28,10 +27,7 @@ $colspan=6;
 <div class="table-responsive"> 
 <table class="table table-bordered table-condensed table-striped"> 
 <tr>
-<td class="center" colspan="6">
-<br>
 <td colspan="<?php echo $colspan ?>" class="row-category"><div align="left"><a name="taskrecord"></a>
-</div>
 </td>
 </tr>
 <tr class="row-category">
@@ -70,7 +66,7 @@ while ($row = db_fetch_array($result)) {
 }
 $use_groups		= config_get( 'plugin_Tasks_tasks_assign_group' );
 if (( ON == $use_groups) and (check_user_in_group($user))){
-	$query2 = "SELECT * FROM {plugin_Tasks_defined},{plugin_Usergroups_ugroup}  WHERE task_group= group_id and user_id = $user  and task_completed = '0000-00-00 00:00:00' ORDER BY task_due ASC";
+	$query2 = "SELECT * FROM {plugin_Tasks_defined},{plugin_Usergroups_usergroup}  WHERE task_group= group_id and user_id = $user  and task_completed = '0000-00-00 00:00:00' ORDER BY task_due ASC";
 	$result2 = db_query($query2);
 	while ($row = db_fetch_array($result2)) {
 		?>

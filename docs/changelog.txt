@@ -51,4 +51,6 @@ Version 3.05		03-12-2020		Added Delete routine and Cleaning option
 									Bugfixes
 Version 3.10		05-02-2022		Improved Mantis 2.x compatibility
 									Bugfixes
-Version 3.20		16-04-20232		Complete review
+Version 3.20		16-04-2023		Complete review
+Version 3.30		28-09-2023		Bugfix
+Version 3.31		19-12-2023		Lay-out addition
