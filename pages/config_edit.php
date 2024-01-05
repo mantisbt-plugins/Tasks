@@ -52,4 +52,4 @@ if ( ON === $f_tasks_clean ) {
 }
 
 // redirect
-print_successful_redirect( plugin_page( 'config',TRUE ) );
+print_header_redirect( plugin_page( 'config',TRUE ) );
