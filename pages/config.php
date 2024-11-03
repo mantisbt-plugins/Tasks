@@ -16,7 +16,7 @@ $link2=plugin_page('task_categories');
 <div class="widget-header widget-header-small">
 	<h4 class="widget-title lighter">
 		<i class="ace-icon fa fa-text-width"></i>
-		<?php echo lang_get( 'tasks' ) . ': ' . lang_get( 'plugin_format_config' )?>
+		<?php echo lang_get( 'tasks' ) . ': ' . lang_get( 'plugin_tasks_config' )?>
 	</h4>
 </div>
 <div class="widget-body">
